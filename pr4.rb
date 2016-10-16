@@ -21,25 +21,21 @@ def is_pal(num)
 end
 
 def is_divisible(num, max_num)
-  i = max_num
-  while i > (max_num + 1)/10
-    if num % i == 0 && (num/i).to_s.size == 3
-      puts i
-      puts num/i
+  while max_num > (max_num + 1)/10
+    if num % max_num == 0 && (num/max_num).to_s.size == 3
       return true
     end
-    i -= 1
+    max_num -= 1
   end
   return false
 end
 
 max_num = 999
 largest_num = max_num * max_num
-not_found = true
-while not_found
+answer = nil
+while !answer
   if is_pal(largest_num) && is_divisible(largest_num, max_num)
-    puts largest_num
-    not_found = false
+    puts answer = largest_num
   else
     largest_num -= 1
   end
